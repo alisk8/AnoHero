@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Staatliches", cursive;
+  margin-left: 15px;
+  background-image: url("back.png");
+  color: black;
+  overflow: hidden;
+}
+
+.custom-btn {
+  padding: 5px;
+  font-family: "Staatliches", cursive;
+  font-size: 25px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  height: 40px;
+}
+
+.btn {
+  border: 2px solid #000;
+  z-index: 1;
+}
+.btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn:active {
+  top: 2px;
+}
+
+.mid {
+  font-family: "Staatliches", cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  padding: 20px;
+  background-color: #872bff;
+}
+
+.input {
+  height: 40px;
+  width: 400px;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  color: white;
+  font-family: "Staatliches", cursive;
+  font-size: 20px;
+}
+
+#dis_mes::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+#dis_mes::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+#dis_mes::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+
+#messages {
+  padding: 20px;
+  list-style: none;
+}
+
+#content {
+  display: none;
+}
+
+#dis_mes {
+  border: 2px solid black;
+  max-height: 80vh;
+  margin: auto;
+  margin-top: 4%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 45%;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 5px;
+}
+
+.form {
+  margin: auto;
+  margin-top: 10px;
+  width: 45%;
+  border: 2px solid black;
+  padding: 2px;
+}
+
+#message {
+  width: 70%;
+  height: 30px;
+  color: #000;
+  border-bottom: 2px solid black;
+  margin-right: 0.5%;
+}
+#mes_send_but {
+  width: 25%;
+  height: 35px;
+  float: right;
+}
+
+#messages > li {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 7px;
+  color: black;
+  background-color: rgb(70, 70, 221);
+  margin: 7px;
+  width: auto;
+  display: table;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnoHero: Articles</title>
+    <link rel="stylesheet" href="Nav.css">
+    <link rel="stylesheet" href="Articles.css">
+    <!-- Adding Firebase App and Library -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link rel="shortcut icon" href="AnoHerologo.png">
+
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyBUrP5Zv2BNN3iapEvjVWWUoTRw8Mgp6eE",
+          authDomain: "articles-93214.firebaseapp.com",
+          projectId: "articles-93214",
+          storageBucket: "articles-93214.appspot.com",
+          messagingSenderId: "54050446215",
+          appId: "1:54050446215:web:27b9cf94cb45fd251e1122"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+        firebase.database().ref("art").on("child_added", function (snapshot) {
+            var html = "";
+            html += "<div class='article'>"
+                html += "<h3>";
+                    html += snapshot.val().Name_of_art;
+                html += "</h3>";
+                html += "<p>";
+                    html += snapshot.val().Description;
+                html += "</p>"
+                html += "<a href='";
+                    html += snapshot.val().URl + "'>Click For Article</a>";
+            html += "</div>";
+
+            document.getElementById('gen').innerHTML += html;
+        });
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+    <label for="menu-icon"></label>
+    <nav class="nav"> 		
+        <ul class="pt-5">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ChatApp.html">Chat App</a></li>
+            <li><a href="Articles.html">Article Gallery</a></li>
+            <li><a href="challanges.html">Challanges</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+
+    <!-- Upload New -->
+    <h1>Upload a New Article</h1>
+    <h2>Click on the Upload button and a form will appear for you to upload your article</h2>
+    <button class="custom-btn btn" onclick="make_new()">Upload</button>  
+    <br><br>
+
+    <!-- Form for New Article -->
+    <div id="form">
+        <form onsubmit="return pub_art();">
+            <hr>
+            <label class="lab">Name of the Article</label><br>
+            <input class="input" required type="text" id="names" autocomplete="off">
+            <br><br>
+            <label class="lab">Short Description (At Least 15 words)</label>
+            <br>
+            <textarea class="input" required id="des" cols="30" rows="10"></textarea>
+            <br><br>
+            <label class="lab">URL</label><br>
+            <input class="input" required type="text" id="url">
+            <br><br>
+            <input class="custom-btn btn" type="submit">
+        </form>
+    </div>
+
+    <br><br><hr>
+    <!-- Article Gallery -->
+    <h1>Article Gallery</h1>
+
+    <div id="gen" class="gen">
+        <div class="article">
+            <h3>12 Ways To Improve Social Skills</h3>
+            <p>If you feel like you’re the awkward person at social events or you struggle to enter into conversations because you’re shy, it can impact your social life and your career.</p>
+            <a href="https://www.lifehack.org/articles/communication/12-ways-improve-social-skills-and-make-you-sociable-anytime.html">Click For Article</a>
+        </div>
+        <div class="article">
+            <h3>Effective Communication</h3>
+            <p>Building good relationships with other people can greatly reduce stress and anxiety in your life. In fact, improving your social support is linked to better mental health in general</p>
+            <a href="https://www.anxietycanada.com/articles/effective-communication-improving-your-social-skills/">Click For Article</a>
+        </div>
+        <div class="article">
+            <h3>4 Tips to Effectively Ask for Help—and Get a Yes</h3>
+            <p>Social psychology shows people are eager to help—if you know how to ask.</p>
+            <a href="https://www.psychologytoday.com/us/blog/tracking-wonder/202002/4-tips-effectively-ask-help-and-get-yes">Click For Article</a>
+        </div>
+        <div class="article">
+            <h3>How to Ask for Help When You’re Afraid To Do So</h3>
+            <p>Nod your head if you’ve ever had to ask for help at work, at home or anywhere else. Now, nod again if you’ve ever felt shy or silly when doing so.</p>
+            <a href="https://www.lifehack.org/813029/learn-to-ask-for-help">Click For Article</a>
+        </div>
+        <div class="article">
+            <h3>Ten Tips for Asking Good Questions</h3>
+            <p>No one says everything you want to hear in the exact order, depth, and detail that you prefer. That’s why the chief tool of a good listener is a good question. Well-crafted questions can stimulate, draw out, and guide discussion.</p>
+            <a href="https://www.dummies.com/careers/find-a-job/interviews/ten-tips-for-asking-good-questions/">Click For Article</a>
+        </div>
+        <div class="article">
+            <h3>The Surprising Power of Questions</h3>
+            <p>Asking questions is a uniquely powerful tool for unlocking value in organizations: It spurs learning and the exchange of ideas, it fuels innovation and performance improvement, it builds rapport and trust among team.</p>
+            <a href="https://hbr.org/2018/05/the-surprising-power-of-questions">Click For Article</a>
+        </div>
+    </div>
+
+    <script src="Articles.js"></script>
+</body>
+</html>

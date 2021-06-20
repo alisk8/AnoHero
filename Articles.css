@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+
+body {
+  font-family: "Staatliches", cursive;
+  margin-left: 15px;
+  background-color: #89d4cf;
+  background-image: url("back.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+.custom-btn {
+  padding: 5px;
+  font-family: "Staatliches", cursive;
+  font-size: 25px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+}
+
+.btn {
+  border: 2px solid #000;
+  z-index: 1;
+}
+.btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn:active {
+  top: 2px;
+}
+
+#form {
+  display: none;
+  text-align: center;
+}
+
+.article {
+  border: 2px solid black;
+  text-align: center;
+  padding: 5px;
+  margin: 15px;
+  background-color: #9e8fb2;
+  background-image: linear-gradient(315deg, #9e8fb2 0%, #a7acd9 74%);
+  transition: 0.5s;
+}
+
+.gen:hover .article {
+  filter: blur(20px);
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+.gen .article:hover {
+  filter: blur(0px);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.gen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.lab {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.input {
+  height: 40px;
+  width: 400px;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  color: black;
+  font-family: "Staatliches", cursive;
+  font-size: 20px;
+}
+
+a {
+  color: black;
+}

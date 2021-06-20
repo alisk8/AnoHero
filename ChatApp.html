@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnoHero: ChatApp</title>
+    <link rel="stylesheet" href="ChatApp.css">
+    <link rel="shortcut icon" href="AnoHerologo.png">
+    <link rel="stylesheet" href="Nav.css">
+
+    <!-- Link Firebase app and database -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+    <!-- Initalizing Firebase -->
+    <script>
+            var firebaseConfig = {
+            apiKey: "AIzaSyBCv-5z3QBbx8pkIJ7TZmOv5jIY_kxXHT4",
+            authDomain: "anohero-339b3.firebaseapp.com",
+            databaseURL: "https://anohero-339b3-default-rtdb.firebaseio.com",
+            projectId: "anohero-339b3",
+            storageBucket: "anohero-339b3.appspot.com",
+            messagingSenderId: "44626382459",
+            appId: "1:44626382459:web:8f6619db09cc39dea89cde"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Process what we got from firebase database -->
+    <script>
+        firebase.database().ref("messages").on("child_added", function (snapshot){
+            var html = "";
+            html += "<li>";
+                html += snapshot.val().sender + "<br>" + snapshot.val().message;
+            html += "</li>";
+
+            document.getElementById("messages").innerHTML += html;
+        });
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+    <label for="menu-icon"></label>
+    <nav class="nav"> 		
+        <ul class="pt-5">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ChatApp.html">Chat App</a></li>
+            <li><a href="Articles.html">Article Gallery</a></li>
+            <li><a href="challanges.html">Challanges</a></li>
+        </ul>
+    </nav>
+
+    <!-- Enter Name and Pin on Home Screen -->
+    <div class="mid" id="dis_after">
+        <form onsubmit="return false">
+            <h2>Enter a Random appropriate Name</h2>
+            <input required id="name" class="input" type="text">
+            <h2>Enter the Pin provided by Your Teacher</h2>
+            <input required class="input" id="input" type="text"> <br><br>
+            <button onclick="nam_and_pin_sub()" class="custom-btn btn">Get me into my Chat Room</button>
+        </form>
+    </div>
+
+    <!-- The Chat App -->
+    <div id="chatapp">
+        <div id="content">
+            <div id="dis_mes">
+                <ul id="messages">
+                </ul>    
+            </div>
+            <div class="form">
+                <form onsubmit="return sendMessage();">
+                    <input class="input" required id="message" placeholder="Enter Message" autocomplete="off">
+                    <input class="custom-btn btn" id="mes_send_but" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="ChatApp.js"></script>
+</body>
+</html>

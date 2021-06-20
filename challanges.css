@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+
+body {
+  height: 100%;
+  margin-left: 20px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Staatliches", cursive;
+  margin-left: 15px;
+  background-image: url("back.png");
+  color: black;
+  overflow: hidden;
+  transition: background-color 500ms;
+}
+
+div {
+  display: inline-block;
+}
+
+button {
+  display: inline-block;
+}
+
+#buts {
+  display: none;
+  margin-left: 25px;
+}
+
+#cong,
+#congs {
+  display: none;
+}
+
+.congratulations {
+  background-color: rgb(20, 187, 20);
+  font-size: 20px;
+}
+
+.custom-btn {
+  padding: 5px;
+  font-family: "Staatliches", cursive;
+  font-size: 25px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  width: auto;
+}
+
+.btn {
+  border: 2px solid #000;
+  z-index: 1;
+}
+.btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn:active {
+  top: 2px;
+}
+
+.mid {
+  font-family: "Staatliches", cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-size: 60px;
+}
